@@ -32,13 +32,17 @@
             margin-top: 10px;
             font-family: 'Oswald', sans-serif;
         }
-        .output {
-            margin-top: 20px;
-            font-size: 20px;
-            color: #333;
-            font-weight: bold;
-            line-height: 0.2; /* Reduces the gap between lines */
-            white-space: pre-line; /* Preserve line breaks */
+        #outputText {
+            margin: 20px auto;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid white;
+            text-align: left;
+            white-space: pre-line; /* Ensures new lines (\n) are respected */
+            line-height: 1.0; /* Reduces the gap between lines */
+        }
+        .line {
+            margin-bottom: 5px; /* Reduces the gap between lines */
         }
     </style>
 </head>

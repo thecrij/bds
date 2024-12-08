@@ -29,6 +29,7 @@
             font-size: 20px;
             color: #333;
             font-weight: bold;
+            white-space: pre-wrap; /* Preserve line breaks */
         }
     </style>
 </head>
@@ -48,27 +49,53 @@
             // Data of entities linked to the Pakistani military
             const associations = {
                 "askari bank": "Askari Bank Limited is owned by the Army Welfare Trust, a subsidiary of the Pakistani military.",
+                "askari cement": "Askari Cement is a project of the Fauji Foundation, owned by the military.",
+                "askari towers": "Askari Towers are commercial real estate projects linked to the Army Welfare Trust.",
+                "askari security services": "Askari Security Services provides private security under the Army Welfare Trust.",
+                "askari aviation": "Askari Aviation Services offers helicopter and aviation services for private and corporate clients.",
+                "askari energy": "Askari Energy Limited focuses on power generation and renewable energy projects under the Army Welfare Trust.",
                 "fauji fertilizer": "Fauji Fertilizer is a military-owned company under the Fauji Foundation.",
-                "bahria town": "Bahria Town has strong ties to the Navy through real estate development.",
                 "national defence university": "National Defence University is run by the Pakistani military.",
                 "foundation university": "Foundation University is owned by the Fauji Foundation, which is linked to the military.",
                 "askari cement": "Askari Cement is a project of the Fauji Foundation, owned by the military.",
                 "army welfare trust": "The Army Welfare Trust (AWT) is a business conglomerate owned by the Pakistan Army to support retired personnel and their families.",
-                "askari general insurance": "Askari General Insurance Company provides general insurance and is owned by the Army Welfare Trust.",
-                "askari housing projects": "Askari Housing Projects develop housing societies for military personnel.",
-                "askari towers": "Askari Towers offers commercial real estate and office spaces linked to the Army Welfare Trust.",
-                "agricultural farms": "The Army Welfare Trust owns agricultural farms and manages farming and livestock projects.",
-                "military dairy farms": "Military Dairy Farms produce dairy for military personnel and civilian markets.",
-                "askari energy": "Askari Energy Limited is involved in energy projects, including power generation and renewable initiatives.",
-                "askari aviation": "Askari Aviation Services provides helicopter and aviation services for private and corporate clients.",
-                "askari enterprises": "Askari Enterprises is a trading and distribution company linked to the military.",
-                "askari security services": "Askari Security Services offers private security and protection services.",
-                "canteen stores department": "The Canteen Stores Department (CSD) collaborates with military organizations to provide subsidized goods to military families."
+                "bahria town": "Bahria Town has strong ties to the Navy through real estate development.",
+                "dostea": "Dostea is a tea brand owned by Fauji Foods, a subsidiary of the Fauji Foundation.",
+                "nurpur milk": "Nurpur Milk is produced by Fauji Foods and sold under the military-linked Fauji Foundation.",
+                "nurpur butter": "Nurpur Butter is a dairy product of Fauji Foods, which is linked to the Fauji Foundation.",
+                "opa milk": "Opa Milk is a flavored milk brand by Fauji Foods, tied to the military-run Fauji Foundation.",
+                "nurpur cheese": "Nurpur Cheese is another dairy product from Fauji Foods, part of the military's economic activities.",
+                "nurpur": "Nurpur is a dairy brand owned by Fauji Foods, which is linked to the Fauji Foundation.",
+                "opa": "Opa is a flavored milk brand owned by Fauji Foods, part of the Fauji Foundation.",
+                "apsacs": "APSACS operates over 200 schools and provides education to both military families and civilians, under the management of the Pakistan Army.",
+                "national university of sciences and technology": "NUST is managed under the Ministry of Defence and offers high-quality education in engineering, IT, business, and more.",
+                "foundation university islamabad": "Foundation University, owned by the Fauji Foundation, offers medical, engineering, business, and social science programs.",
+                "military college jhelum": "Military College Jhelum prepares students for careers in the Pakistan Army, particularly through induction into the Pakistan Military Academy (PMA).",
+                "military college murree": "Military College Murree focuses on grooming students for military and civilian leadership roles.",
+                "military college sui": "Military College Sui offers education to promote development in Balochistan and prepares students for careers in the military.",
+                "cadet college hasan abdal": "Cadet College Hasan Abdal is a semi-military residential institution, closely associated with military leadership, but not directly owned by the Army.",
+                "cadet college kohat": "Cadet College Kohat is a military-supported institution offering education for leadership and professional careers.",
+                "cadet college petaro": "Cadet College Petaro is a semi-military institution supporting career preparation, particularly for military service.",
+                "cadet college razmak": "Cadet College Razmak is another semi-military institution focused on leadership and career development, including military service.",
+                "cadet college mastung": "Cadet College Mastung in Balochistan is supported by the military for leadership and career development.",
+                "national defence university": "NDU focuses on higher education in defence, strategy, and security studies, catering to both military officers and civilians.",
+                "bahria university": "Bahria University is operated by the Pakistan Navy and serves military personnel and their families.",
+                "institute of space technology": "IST, Islamabad, is managed under SUPARCO and is supported by the military for space sciences and aerospace engineering.",
+                "army medical college": "Army Medical College offers MBBS and BDS programs and is affiliated with NUST for degree accreditation.",
+                "fauji foundation schools and colleges": "Fauji Foundation Schools and Colleges are owned by the Fauji Foundation and cater to both military and civilian students.",
+                "school of infantry and tactics": "The School of Infantry and Tactics in Quetta provides specialized military training and research.",
+                "army school of logistics": "The Army School of Logistics in Murree provides education focused on logistics for military officers.",
+                "army medical corps school": "The Army Medical Corps School in Abbottabad offers medical training for military personnel."
             };
 
-            // Check if the input matches any entity in the associations
-            if (associations[input]) {
-                outputDiv.textContent = associations[input];
+            // Collect all matches
+            const matches = Object.keys(associations)
+                .filter(key => key.includes(input)) // Check if the input is a substring of the key
+                .map(key => associations[key]); // Get the associated descriptions
+
+            // Display matches or default message
+            if (matches.length > 0) {
+                outputDiv.textContent = matches.join("\n\n");
             } else {
                 outputDiv.textContent = "No confirmation on any link with the Pakistani military is available.";
             }

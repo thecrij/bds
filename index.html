@@ -1,9 +1,3 @@
-Here’s the updated code with all the additional information incorporated into the associations:
-
----
-
-### **Updated Code with Detailed Associations**
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +26,7 @@ Here’s the updated code with all the additional information incorporated into 
         }
         .output {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 20px;
             color: #333;
             font-weight: bold;
         }
@@ -40,8 +34,45 @@ Here’s the updated code with all the additional information incorporated into 
 </head>
 <body>
     <h1>Check Links to Pakistani Military</h1>
-    <p>Type a product, organization, company, or institution name and click "Check".</p>
+    <p>Type a product, organization, company, or university name and click "Check".</p>
     <input type="text" id="userInput" placeholder="Enter a name here..." />
     <br />
     <button onclick="checkAssociation()">Check</button>
-    <div class="output" id="outputText"></div
+    <div class="output" id="outputText"></div>
+
+    <script>
+        function checkAssociation() {
+            const input = document.getElementById('userInput').value.toLowerCase();
+            const outputDiv = document.getElementById('outputText');
+
+            // Data of entities linked to the Pakistani military
+            const associations = {
+                "askari bank": "Askari Bank Limited is owned by the Army Welfare Trust, a subsidiary of the Pakistani military.",
+                "fauji fertilizer": "Fauji Fertilizer is a military-owned company under the Fauji Foundation.",
+                "bahria town": "Bahria Town has strong ties to the Navy through real estate development.",
+                "national defence university": "National Defence University is run by the Pakistani military.",
+                "foundation university": "Foundation University is owned by the Fauji Foundation, which is linked to the military.",
+                "askari cement": "Askari Cement is a project of the Fauji Foundation, owned by the military.",
+                "army welfare trust": "The Army Welfare Trust (AWT) is a business conglomerate owned by the Pakistan Army to support retired personnel and their families.",
+                "askari general insurance": "Askari General Insurance Company provides general insurance and is owned by the Army Welfare Trust.",
+                "askari housing projects": "Askari Housing Projects develop housing societies for military personnel.",
+                "askari towers": "Askari Towers offers commercial real estate and office spaces linked to the Army Welfare Trust.",
+                "agricultural farms": "The Army Welfare Trust owns agricultural farms and manages farming and livestock projects.",
+                "military dairy farms": "Military Dairy Farms produce dairy for military personnel and civilian markets.",
+                "askari energy": "Askari Energy Limited is involved in energy projects, including power generation and renewable initiatives.",
+                "askari aviation": "Askari Aviation Services provides helicopter and aviation services for private and corporate clients.",
+                "askari enterprises": "Askari Enterprises is a trading and distribution company linked to the military.",
+                "askari security services": "Askari Security Services offers private security and protection services.",
+                "canteen stores department": "The Canteen Stores Department (CSD) collaborates with military organizations to provide subsidized goods to military families."
+            };
+
+            // Check if the input matches any entity in the associations
+            if (associations[input]) {
+                outputDiv.textContent = associations[input];
+            } else {
+                outputDiv.textContent = "No confirmation on any link with the Pakistani military is available.";
+            }
+        }
+    </script>
+</body>
+</html>

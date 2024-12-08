@@ -12,13 +12,13 @@
             margin: 20px;
             text-align: center;
             background-color: black; /* Makes the whole page black */
-            font-style: italic; /* Makes the heading italic */
             color: white; /* Ensures text is visible against the black background */
         }
         h1 {
             font-style: italic; /* Makes the heading italic */
             color: white; /* Ensures heading is visible */
             text-align: center; /* Centers the heading */
+            font-size: 48px;
             margin-top: 20px;
         input {
             padding: 10px;
@@ -37,7 +37,7 @@
             font-size: 20px;
             color: #333;
             font-weight: bold;
-            white-space: pre-wrap; /* Preserve line breaks */
+            white-space: pre-line; /* Preserve line breaks */
         }
     </style>
 </head>
@@ -114,7 +114,7 @@
 
             // Display matches or default message
             if (matches.length > 0) {
-                outputDiv.textContent = matches.join("\n\n");
+                outputDiv.innerHTML = matches.join("<br><br>");
             } else {
                 outputDiv.textContent = "No confirmation on any link with the Pakistani military is available.";
             }

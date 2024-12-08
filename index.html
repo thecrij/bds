@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Printer</title>
+    <title>Dynamic Text Display</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Oswald', sans-serif;
             margin: 20px;
             text-align: center;
         }
@@ -14,11 +16,13 @@
             padding: 10px;
             font-size: 16px;
             width: 80%;
+            font-family: 'Oswald', sans-serif;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
             margin-top: 10px;
+            font-family: 'Oswald', sans-serif;
         }
         .output {
             margin-top: 20px;
@@ -29,21 +33,28 @@
     </style>
 </head>
 <body>
-    <h1>GitHub Pages Text Printer</h1>
-    <p>Type something below and click "Print Text" to display it.</p>
-    <input type="text" id="userInput" placeholder="Type your text here..." />
+    <h1>Dynamic Text Display</h1>
+    <p>Type a keyword (e.g., "cat", "dog", or "sun") and click "Show".</p>
+    <input type="text" id="userInput" placeholder="Type your keyword here..." />
     <br />
-    <button onclick="printText()">Print Text</button>
+    <button onclick="displayContent()">Show</button>
     <div class="output" id="outputText"></div>
 
     <script>
-        function printText() {
-            const input = document.getElementById('userInput').value;
+        function displayContent() {
+            const input = document.getElementById('userInput').value.toLowerCase();
             const outputDiv = document.getElementById('outputText');
-            if (input.trim()) {
-                outputDiv.textContent = input;
+
+            const content = {
+                cat: "This is a cat!",
+                dog: "This is a dog!",
+                sun: "This is the sun!"
+            };
+
+            if (content[input]) {
+                outputDiv.textContent = content[input];
             } else {
-                outputDiv.textContent = "Please enter some text!";
+                outputDiv.textContent = "No matching content found. Try 'cat', 'dog', or 'sun'.";
             }
         }
     </script>

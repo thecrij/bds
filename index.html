@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Printer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Pages Text Printer</h1>
+    <p>Type something below and click "Print Text" to display it.</p>
+    <input type="text" id="userInput" placeholder="Type your text here..." />
+    <br />
+    <button onclick="printText()">Print Text</button>
+    <div class="output" id="outputText"></div>
+
+    <script>
+        function printText() {
+            const input = document.getElementById('userInput').value;
+            const outputDiv = document.getElementById('outputText');
+            if (input.trim()) {
+                outputDiv.textContent = input;
+            } else {
+                outputDiv.textContent = "Please enter some text!";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,10 +1,16 @@
+Here’s the updated code with all the additional information incorporated into the associations:
+
+---
+
+### **Updated Code with Detailed Associations**
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Text Display</title>
-    <!-- Link to Google Fonts -->
+    <title>Pakistani Military Associations</title>
+    <!-- Optional: Add a Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,37 +32,16 @@
         }
         .output {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 18px;
             color: #333;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Dynamic Text Display</h1>
-    <p>Type a keyword (e.g., "cat", "dog", or "sun") and click "Show".</p>
-    <input type="text" id="userInput" placeholder="Type your keyword here..." />
+    <h1>Check Links to Pakistani Military</h1>
+    <p>Type a product, organization, company, or institution name and click "Check".</p>
+    <input type="text" id="userInput" placeholder="Enter a name here..." />
     <br />
-    <button onclick="displayContent()">Show</button>
-    <div class="output" id="outputText"></div>
-
-    <script>
-        function displayContent() {
-            const input = document.getElementById('userInput').value.toLowerCase();
-            const outputDiv = document.getElementById('outputText');
-
-            const content = {
-                cat: "This is a cat!",
-                dog: "This is a dog!",
-                sun: "This is the sun!"
-            };
-
-            if (content[input]) {
-                outputDiv.textContent = content[input];
-            } else {
-                outputDiv.textContent = "No matching content found. Try 'cat', 'dog', or 'sun'.";
-            }
-        }
-    </script>
-</body>
-</html>
+    <button onclick="checkAssociation()">Check</button>
+    <div class="output" id="outputText"></div
